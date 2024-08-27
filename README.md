@@ -1,7 +1,7 @@
 
 # NFT Student Rewards
 
-A decentralized application (dApp) that allows students to receive and manage NFT-based rewards for their academic achievements using blockchain technology. Built with React for the frontend and Solidity for the smart contract.
+A decentralized application (dApp) that allows students to receive and manage NFT-based rewards for their professional and academic achievements using blockchain technology. Built with React for the frontend and Solidity for the smart contract 
 
 ## Features
 
