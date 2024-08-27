@@ -586,15 +586,16 @@ const BurnAchievement = () => {
   };
 
   return (
-    <div>
+    <div id="burn">
       <h1>Burn Achievement</h1>
       <input
+        className="fill"
         type="text"
         value={tokenId}
         onChange={(e) => setTokenId(e.target.value)}
         placeholder="Enter token ID"
       />
-      <button onClick={burnAchievement} disabled={loading}>
+      <button className="btn" onClick={burnAchievement} disabled={loading}>
         {loading ? "Processing..." : "Burn Achievement"}
       </button>
       {error && <p style={{ color: "red" }}>{error}</p>}

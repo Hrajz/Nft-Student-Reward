@@ -28,26 +28,30 @@ function NFTChecker() {
   };
 
   return (
-    <div>
+    <div id="check">
       <h1>NFT Checker</h1>
       <div>
         <input
+          className="fill"
           type="text"
           value={tokenId}
           onChange={(e) => setTokenId(e.target.value)}
           placeholder="Enter Token ID"
         />
-        <button onClick={handleCheckOwnership}>Check Ownership</button>
+        <button className="btn" onClick={handleCheckOwnership}>
+          Check Ownership
+        </button>
         <p>{ownership}</p>
       </div>
       <div>
         <input
+          className="fill"
           type="text"
           value={studentAddress}
           onChange={(e) => setStudentAddress(e.target.value)}
           placeholder="Enter Student Address"
         />
-        <button onClick={handleCheckStudentBalance}>
+        <button className="btn" onClick={handleCheckStudentBalance}>
           Check Student Balance
         </button>
         <p>{balance}</p>

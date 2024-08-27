@@ -42,15 +42,17 @@ const Achievements = () => {
   ];
 
   return (
-    <div>
+    <div id="achievement">
       <h1>Student Achievements</h1>
       <input
+      className="fill"
         type="text"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         placeholder="Enter student address"
       />
-      <button onClick={fetchAchievements} disabled={loading}>
+      <button 
+     className="btn" onClick={fetchAchievements} disabled={loading}>
         {loading ? "Loading..." : "Get Achievements"}
       </button>
 

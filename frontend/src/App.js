@@ -1,5 +1,6 @@
 
 import React, { useEffect } from "react";
+import "./App.css";
 import { initWeb3, rewardNFT } from "./utils/web";
 import RewardStudent from "./RewardStudent.js";
 import Check from "./Check.js";
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <button
+      <button id="connect"
         onClick={() =>
           window.ethereum.request({ method: "eth_requestAccounts" })
         }
