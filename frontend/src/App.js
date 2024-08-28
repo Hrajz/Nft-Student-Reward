@@ -1,35 +1,93 @@
-
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import { initWeb3, rewardNFT } from "./utils/web";
-import RewardStudent from "./RewardStudent.js";
-import Check from "./Check.js";
-import Ach from "./Ach.js";
-import BurnAchievement from "./BurnAchievement.js";
+import { initWeb3 } from "./utils/web";
+import RoutesWithNavigation from "./RoutesWithNavigation"; // Import the new component
 
 function App() {
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(true);
 
   useEffect(() => {
-    const initializeWeb3 = async () => {
-      await initWeb3();
-    };
-    initializeWeb3();
+    if (typeof window.ethereum !== "undefined") {
+      setIsMetaMaskInstalled(true);
+      const initializeWeb3 = async () => {
+        await initWeb3();
+        const accounts = await window.ethereum.request({
+          method: "eth_accounts",
+        });
+        if (accounts.length > 0) {
+          setIsWalletConnected(true);
+        }
+
+        // Listen for account changes to detect disconnection
+        window.ethereum.on("accountsChanged", (accounts) => {
+          if (accounts.length === 0) {
+            setIsWalletConnected(false);
+          } else {
+            setIsWalletConnected(true);
+          }
+        });
+      };
+      initializeWeb3();
+    } else {
+      setIsMetaMaskInstalled(false);
+    }
   }, []);
 
+  const connectWallet = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      if (accounts.length > 0) {
+        setIsWalletConnected(true);
+      }
+    }
+  };
+
   return (
-    <div className="App">
-      <button id="connect"
-        onClick={() =>
-          window.ethereum.request({ method: "eth_requestAccounts" })
-        }
-      >
-        Connect Wallet
-      </button>
-      <RewardStudent />
-      <Check />
-      <Ach />
-      <BurnAchievement/>
-    </div>
+    <Router>
+      <div className="App">
+        {!isMetaMaskInstalled ? (
+          <div id="main">
+            <div className="description">
+              A decentralized application (D-App) that allows Everyone to
+              receive and manage NFT-based rewards for their professional and
+              academic achievements using blockchain technology
+            </div>
+            <div className="meta">
+              <a
+                href="https://metamask.io/download.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="btn">Install MetaMask</button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <>
+            {!isWalletConnected && (
+              <div id="main">
+                <div className="description">
+                  A decentralized application (D-App) that allows Everyone to
+                  receive and manage NFT-based rewards for their professional
+                  and academic achievements using blockchain technology
+                </div>
+                <div className="meta">
+                  <button id="connect" onClick={connectWallet}>
+                    Connect Wallet
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {isWalletConnected && <RoutesWithNavigation />}
+          </>
+        )}
+      </div>
+    </Router>
   );
 }
 
