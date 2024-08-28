@@ -4,6 +4,7 @@ import RewardStudent from "./RewardStudent.js";
 import Check from "./Check.js";
 import Ach from "./Ach.js";
 import BurnAchievement from "./BurnAchievement.js";
+import meta from "./ad75b7b113ac422080d6ce73d379de6e.png"
 
 const RoutesWithNavigation = () => {
   const [hasButtonBeenClicked, setHasButtonBeenClicked] = useState(() => {
@@ -29,6 +30,7 @@ const RoutesWithNavigation = () => {
     <>
       {!hasButtonBeenClicked && (
         <nav className="navigate">
+          <img className="metamask" src={meta} alt="meta" />
           <Link to="/reward-student">
             <button className="btn bt2" onClick={handleButtonClick}>
               Reward Student
