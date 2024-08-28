@@ -4,6 +4,7 @@ import "./App.css";
 import { initWeb3 } from "./utils/web";
 import RoutesWithNavigation from "./RoutesWithNavigation"; // Import the updated component
 import Header from "./Header";
+import Particle from "./Particle";
 
 function App() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -50,6 +51,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Particle />
       <div className="App">
         {!isMetaMaskInstalled ? (
           <div id="main">
