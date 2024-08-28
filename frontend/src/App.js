@@ -64,7 +64,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="btn">Install MetaMask</button>
+                <button className="btn download">Install MetaMask to use D-app</button>
               </a>
             </div>
           </div>
