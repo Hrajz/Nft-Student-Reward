@@ -40,7 +40,7 @@ const RewardStudent = () => {
 
   return (
     <div id="award">
-      <h2>Award Student Achievement NFT</h2>
+      <h2 className="wh">Award Student Achievement NFT</h2>
       <div id="align">
         <input
           className="fill"

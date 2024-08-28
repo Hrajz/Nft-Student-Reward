@@ -18,6 +18,13 @@
   align-items: center;
 }
 
+.logo {
+  width: 37px;
+  aspect-ratio: 1;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+
 .com {
   font-size: 23px;
 }
@@ -133,6 +140,16 @@
   .text {
     height: 150px;
   }
+
+  .com {
+    font-size: 18px;
+  }
+
+  .home-button {
+    margin: 0 20px;
+    padding: 7px 20px;
+    font-size: 14px;
+  }
 }
 
 
@@ -160,11 +177,16 @@
 #award {
   /* border: 2px solid green; */
   padding: 10px;
-  background: linear-gradient(90deg, rgba(169, 170, 162, 1) 0%, rgba(6, 29, 63, 1) 14%, rgba(95, 170, 207, 1) 25%, rgba(24, 145, 170, 1) 40%, rgba(8, 190, 227, 1) 80%, rgba(7, 106, 126, 1) 92%, rgba(2, 186, 223, 1) 98%, rgba(7, 109, 130, 1) 100%);
-  width: min(1200px, 96vw);
+  background-color: rgba(17, 25, 40, 0.75);
+  backdrop-filter: blur(7px) saturate(180%);
   margin: 90px 0;
+  width: min(1200px, 96vw);
   border-radius: 10px;
   height: fit-content;
+}
+
+.wh {
+  color: white;
 }
 
 #align {
@@ -193,6 +215,7 @@
   background: rgb(56, 213, 74);
   width: 90px;
   height: 40px;
+  margin: 10px 0;
   font-family: 'Times New Roman', Times, serif;
   border-radius: 5px;
   font-weight: bold;
