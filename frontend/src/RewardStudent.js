@@ -22,7 +22,7 @@ const RewardStudent = () => {
       return;
     }
 
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    if (!/^\d{4}\d{2}\d{2}$/.test(date)) {
       setError("Invalid date format. Use YYYY-MM-DD.");
       return;
     }
@@ -50,7 +50,7 @@ const RewardStudent = () => {
           onChange={(e) => setStudentAddress(e.target.value)}
         />
         <textarea
-          className="fill"
+          className="fill text"
           type="text"
           placeholder="Achievement Description"
           value={description}

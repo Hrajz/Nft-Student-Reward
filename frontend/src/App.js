@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import { initWeb3 } from "./utils/web";
-import RoutesWithNavigation from "./RoutesWithNavigation"; // Import the new component
+import RoutesWithNavigation from "./RoutesWithNavigation"; // Import the updated component
+import Header from "./Header";
 
 function App() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <div className="App">
         {!isMetaMaskInstalled ? (
           <div id="main">

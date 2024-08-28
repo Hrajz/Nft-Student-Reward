@@ -59,14 +59,14 @@ const Achievements = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {achievements.length > 0 && (
-        <ul>
+        <ul className="ul">
           {achievements.map((achievement, index) => (
-            <li key={index}>
-              <p>
+            <li key={index} className="ach-com">
+              <p className="border-bottom">
                 <strong>Token ID:</strong> {achievement.tokenId}
               </p>
-              <p>Description: {achievement.description}</p>
-              <p>
+              <p className="border-bottom">Description: {achievement.description}</p>
+              <p className="border-bottom">
                 Date: {achievement.date.slice(6, 8)}-
                 {monthNames[parseInt(achievement.date.slice(4, 6), 10) - 1]}-
                 {achievement.date.slice(0, 4)}

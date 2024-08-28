@@ -6,17 +6,23 @@ import Ach from "./Ach.js";
 import BurnAchievement from "./BurnAchievement.js";
 
 const RoutesWithNavigation = () => {
-  const [hasButtonBeenClicked, setHasButtonBeenClicked] = useState(false);
+  const [hasButtonBeenClicked, setHasButtonBeenClicked] = useState(() => {
+    // Retrieve state from sessionStorage
+    return sessionStorage.getItem("hasButtonBeenClicked") === "true";
+  });
   const location = useLocation();
 
   useEffect(() => {
     if (location.pathname === "/") {
+      // Reset button state when navigating to the home route
       setHasButtonBeenClicked(false);
+      sessionStorage.removeItem("hasButtonBeenClicked");
     }
   }, [location]);
 
   const handleButtonClick = () => {
     setHasButtonBeenClicked(true);
+    sessionStorage.setItem("hasButtonBeenClicked", "true");
   };
 
   return (
